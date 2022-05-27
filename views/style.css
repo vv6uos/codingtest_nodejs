@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "EliceDigitalBaeum";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_elice@1.0/EliceDigitalBaeum.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "EliceDigitalBaeum-Bd";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_elice@1.0/EliceDigitalBaeum-Bd.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+header {
+  font-family: "EliceDigitalBaeum";
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  margin-bottom: 30px;
+}
+
+body {
+  margin-bottom: 100px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+.questionBtn {
+  font-family: "EliceDigitalBaeum";
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin-right: 20px;
+  margin-left: 20px;
+  width: 150px;
+  height: 70px;
+  border: none;
+  background-color: white;
+  border-bottom: 3px solid black;
+  font-size: 17px;
+}
+
+section {
+  font-family: "EliceDigitalBaeum";
+  margin-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+section > h1 {
+  font-family: "EliceDigitalBaeum-Bd";
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+form > input,
+select {
+  height: 30px;
+}
+
+#Q2_sendBtn,
+h1 > button {
+  font-family: "EliceDigitalBaeum";
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 5px 0 5px 15px;
+  width: 100px;
+  height: 30px;
+  border: none;
+  background-color: black;
+  color: white;
+  border-bottom: 3px solid black;
+  font-size: 17px;
+}
+button:hover {
+  color: gray;
+}
+
+table {
+  text-align: center;
+  margin-top: 50px;
+  margin-right: 50px;
+  min-width: 220px;
+  border-top: 1px solid #444444;
+  border-bottom: 1px solid #444444;
+}
+
+th,
+td {
+  padding: 5px;
+}
+
+#Q4_wrap_contents {
+  display: flex;
+}
+
+#chart_div {
+  margin: 20px 20px;
+}

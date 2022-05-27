@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width",initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <title>브릭 코딩테스트</title>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <header>
+      <h1 id="title">
+        <span class="material-symbols-outlined"> co_present </span>이송은
+        문제풀이
+      </h1>
+      <p id="semi-title">BRIQUE 코딩테스트</p>
+    </header>
+    <main>
+      <nav>
+        <button class="questionBtn" id="button1" onclick="location.href = `/1`">
+          1번 풀이
+        </button>
+        <button class="questionBtn" id="button2" onclick="location.href = `/2`">
+          2번 풀이
+        </button>
+        <button class="questionBtn" id="button3" onclick="location.href = `/3`">
+          3번 풀이
+        </button>
+        <button class="questionBtn" id="button1" onclick="location.href = `/4`">
+          4번 풀이
+        </button>
+        <button class="questionBtn" id="button5" onclick="location.href = `/5`">
+          5번 풀이
+        </button>
+        <button class="questionBtn" id="button1" onclick="location.href = `/?`">
+          ?번 풀이
+        </button>
+      </nav>
+      <section>
+        <h1>
+          대용양 csv 파일 값 처리 프로그램
+          <button id="Q1_start_btn" onclick="onClickStartBtn()">
+            출력하기
+          </button>
+        </h1>
+        <p id="Q1_loadingmsg"></p>
+        <div id="Q1_input_area"></div>
+      </section>
+      <script src="Q1.js"></script>
+    </main>
+  </body>
+</html>
