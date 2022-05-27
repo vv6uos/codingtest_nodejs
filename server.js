@@ -42,7 +42,7 @@ app.get("/test", (req, res) => {
 
 //서버가동
 const server = app.listen(3000, () => {
-  console.log("이송은 브릭 코딩테스트 서버 시작");
+  console.log("이송은 NODE 코딩테스트 서버 시작");
   console.log("localhost:3000으로 접속 바랍니다");
   employeesDB.connect();
   weatherDB.connect();
