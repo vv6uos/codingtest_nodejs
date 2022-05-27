@@ -6,15 +6,10 @@ function onClickActBtn() {
   document.getElementById("lodingmsg").innerHTML = "데이터를 불러오는 중입니다";
   get100response();
   setTimeout(() => {
-    const uniqueResArr = removeRpt(responsedata);
     const countArr = chkRepeatNum(idsInResdata);
-    const makeArrInterface = makeArrIn_cnt_id_quote(countArr);
-    const resultDataArr = insertQutValue(makeArrInterface, uniqueResArr);
-    setTimeout(() => {
-      total === 100
-        ? printResult(resultDataArr)
-        : alert("다시 실행 부탁드립니다.");
-    }, 4000);
+    const resultDataArr = makeResultArr(responsedata, countArr);
+    const finArr = sortArr(resultDataArr);
+    total === 100 ? printResult(finArr) : alert("다시 실행 부탁드립니다");
   }, 3500);
 }
 
@@ -33,7 +28,6 @@ function get100response() {
       });
   }
 }
-
 //중복 개수 확인하기
 function chkRepeatNum(arr) {
   const result = {};
@@ -42,56 +36,27 @@ function chkRepeatNum(arr) {
   });
   return result;
 }
-//중복 제거 데이터
-function removeRpt(ObjArr) {
-  const map = new Map();
-  for (const character of ObjArr) {
-    map.set(JSON.stringify(character), character);
-  }
-  const arrUnique = [...map.values()];
-  console.log(arrUnique);
 
-  return arrUnique;
-}
-
-// 결과 객체배열 인터페이스 만들기
-function makeArrIn_cnt_id_quote(list) {
+function makeResultArr(arr, list) {
   let newArr = [];
-
-  for (i = 0; i < Object.keys(list).length; i++) {
-    let key = Object.keys(list)[i];
-    let value = Object.values(list)[i];
-    newArr.push({ count: value, id: Number(key), quote: "" });
+  for (key in list) {
+    const findlist = arr.find((list) => list.id == key);
+    newArr.push({
+      count: list[key],
+      id: findlist.id,
+      quote: findlist.quote,
+    });
+    total += list[key];
   }
-
-  console.log(newArr);
   return newArr;
 }
 
-function insertQutValue(arr, insertArr) {
-  for (i = 0; i < arr.length; i++) {
-    total += arr[i].count;
-    for (j = 0; j < insertArr.length; j++) {
-      if (arr[i].id === insertArr[j].id) {
-        arr[i].quote = insertArr[j].quote;
-      }
-    }
-  }
-  return arr;
-}
-
-//정렬은 실패했습니다....
 function sortArr(arr) {
-  for (i = 0; i < arr.length; i++) {
-    for (j = 1; j < arr.length; j++) {
-      if (arr[i].count < arr[j].count) {
-        let tmp = arr[j];
-        arr[i] = arr[j];
-        arr[j] = tmp;
-      }
-    }
-  }
-  return arr;
+  const newArr = arr.sort((a, b) => {
+    return b.count - a.count;
+  });
+
+  return newArr;
 }
 
 function printResult(arr) {
@@ -99,7 +64,7 @@ function printResult(arr) {
   document.getElementById("lodingmsg").innerHTML = "";
 
   for (i = 0; i < arr.length; i++) {
-    let row = `<p>count : ${arr[i].count}  { id : ${arr[i].id} , quote : ${arr[i].quote} }`;
+    let row = `<p>count : ${arr[i].count} { id : ${arr[i].id} , quote : ${arr[i].quote} }</p>`;
     inputArea.innerHTML += row;
   }
   document.getElementById(
